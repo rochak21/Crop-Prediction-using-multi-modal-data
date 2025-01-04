@@ -76,8 +76,9 @@ To fine-tune the MMST-ViT model for crop yield predictions, the command may need
 
 This repository is based on the official implementation of [PVT](https://github.com/whai362/PVT) and [MAE](https://github.com/facebookresearch/mae). I would like to thank the authors for releasing the code.
 
-## Citation
 
+
+## Citation
 ```
 @inproceedings{fudong:iccv23:mmst_vit,
     author    = {Lin, Fudong and Crawford, Summer and Guillot, Kaleb and Zhang, Yihe and Chen, Yan and Yuan, Xu and Chen, Li and Williams, Shelby and Minvielle, Robert
