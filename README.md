@@ -79,7 +79,7 @@ This repository is based on the official implementation of [PVT](https://github.
 
 
 ## Citation
-```
+
 @inproceedings{fudong:iccv23:mmst_vit,
     author    = {Lin, Fudong and Crawford, Summer and Guillot, Kaleb and Zhang, Yihe and Chen, Yan and Yuan, Xu and Chen, Li and Williams, Shelby and Minvielle, Robert
 and Xiao, Xiangming and Gholson, Drew and Ashwell, Nicolas and Setiyono, Tri and Tubana, Brenda and Peng, Lu and Bayoumi, Magdy and Tzeng, Nian-Feng},
@@ -88,4 +88,4 @@ and Xiao, Xiangming and Gholson, Drew and Ashwell, Nicolas and Setiyono, Tri and
     year      = {2023},
     pages     = {5774-5784}
 }
-```
+
