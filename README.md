@@ -48,7 +48,7 @@ You can use the following instructions to install all the requirements:
 pip install -r requirements.txt
 ```
 the requirement may not support the version of the Pycharm , so based on what version of pycharm or other tools the user have, the user have to update the requirements accordingly.
-The following code shows how to generate the JSON configuration file for the data loader (using soybean predictions as an example):
+The following code shows how to generate the JSON configuration file for the data loader.
 ```python
 python config/build_config_cropname.py
 ```
@@ -71,9 +71,6 @@ To pre-train the MMST-ViT model, the command varies slightly depending on the op
 To fine-tune the MMST-ViT model for crop yield predictions, the command may need to be adjusted based on the operating system to ensure compatibility. On Windows, the standard command `python main_finetune_mmst_vit.py` works without requiring modifications. However, for macOS users, it is recommended to specify the device (`--device cpu`) and the number of workers (`--num_workers 0`) to address differences in how multiprocessing is handled on macOS. The adjusted command for macOS is: `python main_finetune_mmst_vit.py --device cpu --num_workers 0`. This ensures that the fine-tuning process runs smoothly and efficiently, taking into account platform-specific constraints.
 ```
 
-## License
-
-This repository is under the CC-BY-NC 4.0 license. Please refer to [LICENSE](https://github.com/fudong03/MMST-ViT/blob/main/LICENSE) for details.
 
 ## Acknowledgment
 
