@@ -1,4 +1,4 @@
-# MMST-ViT: Climate Change-aware Crop Yield Prediction via Multi-Modal Spatial-Temporal Vision Transformer
+**MMST-ViT: Predicting Crop Yields with Multi-Modal Spatial-Temporal Vision Transformer for Climate Change Adaptation**
 
 ## Model Overview
 
@@ -6,7 +6,7 @@
 
 
 
-This repository provides the official implementation of our proposed Multi-Modal Spatial-Temporal Vision Transformer (MMST-ViT), developed for predicting crop yields at the county level across the United States. It consists of a Multi-Modal Transformer, a Spatial Transformer, and a Temporal Transformer. The Multi-Modal Transformer leverages satellite images and meteorological data during the growing season to capture the direct impact of short-term weather variations on crop growth. The Spatial Transformer learns the high-resolution spatial dependency among counties for precise crop tracking. The Temporal Transformer captures the effects of long-term climate change on crops.
+This repository provides the official implementation of our proposed Multi-Modal Spatial-Temporal Vision Transformer (MMST-ViT), developed for predicting crop yields at the county level across the United States for different fips codes. It consists of a Multi-Modal Transformer, a Spatial Transformer, and a Temporal Transformer. The Multi-Modal Transformer leverages satellite images and meteorological data during the growing season to capture the direct impact of short-term weather variations on crop growth. The Spatial Transformer learns the high-resolution spatial dependency among counties for precise crop tracking. The Temporal Transformer captures the effects of long-term climate change on crops.
 
 ## Datasets
 
@@ -21,13 +21,8 @@ with their details outlined below:
 
 - **USDA Crop Dataset**: The dataset, sourced from the United States Department of Agriculture (USDA), provides annual crop data for major crops grown in the United States (U.S.), including corn, cotton, soybean, winter wheat, etc., on a county-level basis. It covers crop information such as production and yield from 2017 to 2022.
 
-Now, our Tiny CropNet dataset is available at [HuggingFace Datasets](https://huggingface.co/datasets/fudong03/Tiny-CropNet/tree/main).
+Now, the Tiny CropNet dataset is available at [HuggingFace Datasets](https://huggingface.co/datasets/fudong03/Tiny-CropNet/tree/main).
 
-
-### The CropNet Dataset
-**As of March 2024, we are releasing our CropNet dataset at [HuggingFace Datasets](https://huggingface.co/datasets/CropNet/CropNet), with its tutorials available at [Github](https://github.com/fudonglin/CropNet)**. The CropNet dataset is an extension of the Tiny CropNet Dataset. It is composed of three modalities of data, i.e., Sentinel-2 Imagery, WRF-HRRR Computed Dataset, and USDA Crop Dataset, spanning from 2017 to 2022 (i.e., 6 years) across 2291 (over 3143 in total) U.S. counties, with its geographic distribution illustrated below. We also include the number of counties corresponding to each crop type in the USDA Crop Dataset (see the rightmost bar chart in the figure) since crop planting is highly geography-dependent.
-
-![CropNet](input/dataset-geo-overview.png)
 
 ## Requirements
 
@@ -52,12 +47,12 @@ You can use the following instructions to install all the requirements:
 # install requirements
 pip install -r requirements.txt
 ```
-
+the requirement may not support the version of the Pycharm , so based on what version of pycharm or other tools the user have, the user have to update the requirements accordingly.
 The following code shows how to generate the JSON configuration file for the data loader (using soybean predictions as an example):
 ```python
-python config/build_config_soybean.py
+python config/build_config_cropname.py
 ```
-
+cropname:soybean,corn,winterwheat,cotton.
 
 ## Pre-training
 
@@ -67,22 +62,13 @@ python config/build_config_soybean.py
 
 The above figure illustrates the architecture of our proposed multi-modal self-supervised pre-training.
 
- To pre-train MMST-ViT, please run the following command:
-
-```python
-# pre-train
-python main_pretrain_mmst_vit.py
-```
+To pre-train the MMST-ViT model, the command varies slightly depending on the operating system due to platform-specific differences in resource management and compatibility. For Windows, the standard command `python main_pretrain_mmst_vit.py` can be used without modification. However, on macOS, it is recommended to specify the device (`--device cpu`) and the number of workers (`--num_workers 0`) explicitly to ensure compatibility and prevent potential issues with multiprocessing, which behaves differently on macOS compared to Windows. The modified command for macOS is: `python main_pretrain_mmst_vit.py --device cpu --num_workers 0`. This adjustment ensures smooth execution of the script and aligns with the system's capabilities for handling computational tasks.
 
 
 
 ## Fine-tuning
 
-To fine-tune MMST-ViT for crop yield predictions, use the following command:
-
-```python
-# fine-tune
-python main_finetune_mmst_vit.py
+To fine-tune the MMST-ViT model for crop yield predictions, the command may need to be adjusted based on the operating system to ensure compatibility. On Windows, the standard command `python main_finetune_mmst_vit.py` works without requiring modifications. However, for macOS users, it is recommended to specify the device (`--device cpu`) and the number of workers (`--num_workers 0`) to address differences in how multiprocessing is handled on macOS. The adjusted command for macOS is: `python main_finetune_mmst_vit.py --device cpu --num_workers 0`. This ensures that the fine-tuning process runs smoothly and efficiently, taking into account platform-specific constraints.
 ```
 
 ## License
@@ -91,7 +77,7 @@ This repository is under the CC-BY-NC 4.0 license. Please refer to [LICENSE](htt
 
 ## Acknowledgment
 
-This repository is based on the official implementation of [PVT](https://github.com/whai362/PVT) and [MAE](https://github.com/facebookresearch/mae). We thank the authors for releasing the code.
+This repository is based on the official implementation of [PVT](https://github.com/whai362/PVT) and [MAE](https://github.com/facebookresearch/mae). I would like to thank the authors for releasing the code.
 
 ## Citation
 
