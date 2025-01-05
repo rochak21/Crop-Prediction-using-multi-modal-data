@@ -88,4 +88,8 @@ and Xiao, Xiangming and Gholson, Drew and Ashwell, Nicolas and Setiyono, Tri and
     year      = {2023},
     pages     = {5774-5784}
 }
+## Best model for prediction
+To make the prediction , the command is : python bestmodel.py
 
+## Plot
+To view the plot between true labels and predicted labels, the command is : plot.py
